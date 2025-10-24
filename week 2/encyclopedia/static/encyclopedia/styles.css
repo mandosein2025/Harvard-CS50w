@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: white;
+  font-family: "Bitcount Grid Single", system-ui;
+}
+
+code {
+  white-space: pre;
+}
+
+header {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: black;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 36px;
+}
+
+nav.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  font-size: larger;
+  color: #000;
+  border-radius: 20px;
+  background-color: #fff;
+  transition: 0.1s ease;
+  font-weight: 700;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #000;
+  transition: 0.5s ease;
+}
+
+form {
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.search {
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  background-color: #000;
+  color: #fff;
+  transition: 0.1s ease;
+}
+
+.search:hover {
+  border: 5px solid #fff;
+  background-color: #000;
+  color: #fff;
+  transition: 0.1s ease;
+}
+
+.main {
+  width: 100%;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.messages {
+  font-size: large;
+  padding: 10px 0;
+}
+
+.article {
+  font-size: 35px;
+  text-align: center;
+}
+
+.article h1 {
+  padding-bottom: 18px;
+}
+
+.article h2 {
+  padding-bottom: 16px;
+}
+
+.article h3 {
+  padding-bottom: 14px;
+}
+
+.article .edit_btn {
+  padding-top: 20px;
+}
+
+.article .edit_btn a {
+  background-color: #000;
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.article .edit_btn a:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 0.2s ease;
+}
+
+.btnn a,
+.btnn button {
+  background-color: #000;
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.btnn button:hover,
+.btnn a:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 0.2s ease;
+}
+
+.article_message {
+  padding: 30px;
+  text-align: center;
+}
+
+textarea {
+  height: auto;
+  width: 70%;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.list-group-item {
+  font-size: larger;
+  width: 100%;
+}
+
+body_spacing {
+  padding-top: 40px;
+  padding-left: 4vh;
+}

@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia: Create New Page
+{% endblock %}
+
+{% block body %}
+    
+    <h1 style="text-align: center;" class="col-sm-auto">Create a New Page</h1>
+    
+    <form action = '{% url 'encyclopedia:newpage' %}' method = 'post'>
+        {% csrf_token %}
+        {% for field in form %}
+        
+        <label class ='col-sm-2 col-form-label col-form-label-lg'>{{field.label}}</label>
+        <div class="col-sm-auto">
+            {{field}}
+        </div>   
+        
+        {% endfor %}
+        <br>
+        <div class="col-auto btnn">
+            <button type="submit" class="btn btn-outline-dark">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}

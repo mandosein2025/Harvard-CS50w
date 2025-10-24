@@ -1,0 +1,33 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit: {{title}}
+{% endblock %}
+
+{% block body %}
+    
+    <h1 style="text-align: center;">Edit {{title}}</h1>
+    
+    <form class="col-auto" action = '{% url 'encyclopedia:edit' name=title %}' method = 'post'>
+        {% csrf_token %}
+        <label class ='col-sm-2 col-form-label col-form-label-lg'>{{form.title.label}}</label>
+        <div class="col-sm-auto">
+            {{form.title}}
+        </div>
+        <label class ='col-sm-2 col-form-label col-form-label-lg'>{{form.text.label}}</label>
+        <div class="col-sm-auto">
+            {{form.text}}
+        </div>     
+        
+        <br>
+        <div class="col-auto btnn">
+            <button type="submit" class="btn btn-outline-dark">Edit</button>
+        </div>
+        <br>
+        <div class="col-auto btnn">
+            <a href="{% url 'encyclopedia:article' name=title %}" class="btn btn-outline-dark">Cancel</a>
+        </div>
+    </form>
+    <br>
+
+{% endblock %}

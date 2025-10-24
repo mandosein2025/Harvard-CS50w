@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{% static 'encyclopedia/favicon.png' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="d-flex align-items-center justify-content-between p-3">
+        <div class="logo">
+            <span class="navbar-brand mb-0"><img style="width: 100px;" src="../../static/encyclopedia/logo.gif" alt=""></span>
+        </div>
+
+        <form action='{% url "encyclopedia:search" %}' method="POST" class="flex-grow-1 mx-3">
+            {% csrf_token %}
+            <input class="form-control search" type="text" name="q" placeholder="Searching ...">
+        </form>
+
+        <nav class="nav">
+            <a class="nav-link" href="{% url 'encyclopedia:index' %}">Home</a>
+            <a class="nav-link" href="{% url 'encyclopedia:newpage' %}">Create New Page</a>
+            <a class="nav-link" href="{% url 'encyclopedia:random' %}">Random Page</a>
+            {% block nav %}{% endblock %}
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="main container">
+        <div class='messages'>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+
+        {% block body %}{% endblock %}
+    </main>
+</body>
+</html>
