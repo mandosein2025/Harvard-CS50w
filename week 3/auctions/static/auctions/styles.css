@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap");
+
+body {
+  padding: 10px;
+  font-family: "Bitcount Grid Single", system-ui;
+}
+
+.form-control {
+  padding: 10px;
+  font-size: large;
+  width: 100%;
+  border: 2px solid #000;
+}
+
+.form-control:hover {
+  border: 5px solid #000;
+}
+
+.newlisting {
+  padding: 30px 50px;
+}
+
+.messages {
+  font-size: large;
+  padding: 10px;
+  padding-left: 0vh;
+}
+
+.list-group-item-xxl {
+  padding: 20px;
+  padding-left: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.list-group-item-xxl:hover {
+  color: #000;
+}
+
+.list-group-item {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  margin-bottom: 30px;
+  background-color: #000;
+}
+
+.list-group-item:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+}
+
+/* index */
+.spacing {
+  padding: 0 10%;
+  padding-top: 1%;
+}
+
+.image_spacing {
+  padding: 20px;
+  width: 50%;
+  height: 50%;
+  border-radius: 20px;
+}
+.image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+ul {
+  list-style-type: none;
+}
+h1 {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-size: 4rem;
+  font-weight: 400;
+}
+h2 {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-weight: 500;
+  font-size: 3rem;
+}
+h3 {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-weight: 200;
+}
+p {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-weight: 200;
+  font-size: larger;
+  line-height: 150%;
+}
+
+/* navbar */
+.navbrand {
+  padding-right: 3%;
+}
+
+.navbar {
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 10px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+
+/* categories */
+
+.cat-list {
+  width: 100%;
+  font-size: larger;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+.cat_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+}
+
+/* add listing */
+.form_spacing {
+  padding-left: 50px;
+}
+
+.form_spacing a {
+  color: #000;
+  transition: 02s ease;
+}
+.form_spacing a:hover {
+  font-size: 18px;
+  transition: 02s ease;
+}
+.newlisting {
+  padding-top: 5px;
+}
+
+.btn-primary,
+.btn-outline-dark {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  transition: 02s ease;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  box-shadow: 0 0 0 0 #0000004e;
+  text-align: center;
+}
+
+.btn-primary:hover,
+.btn-outline-dark:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 02s ease;
+  box-shadow: 0 0 2px 5px #0000004e;
+}
+
+/* messages */
+.alert {
+  text-align: center;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+
+/* listing */
+.listing_spacing {
+  padding: 0 12%;
+  padding-top: 1%;
+}
+.title {
+  font-size: 4rem;
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+}
+
+.list_head {
+  font-size: 2.4rem;
+}
+
+.desc {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 2%;
+  font-size: 1.8rem;
+}
+.desc p {
+  font-weight: 400;
+}
+.bids {
+  margin-top: 30px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.bids p {
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.noofbids {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 1.6rem;
+  line-height: 100%;
+  margin-bottom: 0rem;
+  font-weight: 300;
+}
+
+.bidform {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  padding: 20px 0;
+}
+
+.bidform .form-control {
+  width: 100%;
+  padding-left: 10%;
+  height: 100%;
+}
+.bidform .btn {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  height: 100%;
+}
+.details p {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.container {
+  padding-left: 0;
+}
+.mb-0 {
+  font-weight: 400;
+}

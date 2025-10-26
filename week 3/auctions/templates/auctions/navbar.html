@@ -1,0 +1,66 @@
+<!-- =========================================
+     🌐 Navbar Template
+     Author: Mohammad Hosein Habibi
+     GitHub: @mandosein2025
+========================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <!-- ===== Brand / Logo ===== -->
+    <div class="navbrand">
+      <h2 style="color: #fff; margin-top: 10px;">shoparac</h2>
+    </div>
+
+      
+      <!-- ===== Left-Side Links ===== -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}" style="color: #fff;">Active Listings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'category' %}" style="color: #fff;">Categories</a>
+        </li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'watchlist' %}" style="color: #fff;">Watchlist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'newlisting' %}" style="color: #fff;">List Your Item</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <!-- ===== Right-Side Links (Auth Section) ===== -->
+      <div class="d-flex align-items-center">
+        {% if user.is_authenticated %}
+          <!-- If user is logged in -->
+          <span class="navbar-text" style="color: #fff;">
+            Signed in as <strong>{{ user.username }}</strong>.
+          </span>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}" style="color: #fff;">Log Out</a>
+            </li>
+          </ul>
+
+        {% else %}
+          <!-- If user is not logged in -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}" style="color: #fff;">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}" style="color: #fff;">Register</a>
+            </li>
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- =========================================
+     End of Navbar
+========================================= -->
