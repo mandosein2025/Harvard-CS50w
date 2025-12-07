@@ -1,0 +1,47 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    {% if post_id %}
+        <h2 class="title">Edit Post</h2>
+    {% else %}
+        <h2 class="title">Post</h2>
+    {% endif %}
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" style="margin: 20px;">
+                <div id="post-view">
+                    <form id="post-form" action="{% url 'post' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <textarea autofocus class="form-control" id="post-message" name="post-message" required="required" maxlength="{{ post_max_length }}" placeholder="Post">{% if post_message %}{{ post_message }}{% endif %}</textarea>
+                            {% if post_id %}
+                                <input type="hidden" id="post_id" name="post_id" value="{{ post_id }}">
+                            {% endif %}
+                        </div>
+                        <span class="align-bottom">
+                            <div class="row algin-bottom">
+                                <div class="col">
+                                    <input type="submit" class="btn btn-primary" value="Post"/>
+                                </div>
+                                <div class="col" id="post-chars-remaining-message" align="right">
+                                    <b>{{ post_max_length }}</b> characters remaining
+                                </div>
+                            </div>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/post.js' %}"></script>
+{% endblock %}

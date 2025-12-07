@@ -1,0 +1,95 @@
+{% extends "network/layout.html" %}
+{% block body %}
+{% block details %}
+{% endblock details %}
+    {% if posts %}
+    {% for post in posts %}
+        <div class="container" data-post_container_id="{{ post.id }}">
+            <div class="row post-row">
+                <h3><a href="{% url 'get_user' post.user.id %}">{{ post.user.username }}</a></h3>
+            </div>
+            <div class="row post-row">
+                <div data-message="{{ post.id }}">{{ post.message }}</div>
+            </div>
+            <div class="row post-row">
+                <div>{{ post.created_on }} 
+                    {% if post.user.id == request.user.id %}
+                        <a class="edit_post" id="edit_post_{{ post.id }}" data-editid="{{ post.id }}" href="#edit_post_{{ post.id }}">Edit</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row post-row">
+                <div style="display: inline;">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user in post.likes.all %}
+                            <i data-id="{{ post.id }}" class="fas fa-heart" style="color: red;"></i>
+                        {% else %}
+                            <i data-id="{{ post.id }}" class="far fa-heart" style="color: red;"></i>
+                        {% endif %}
+                    {% else %}    
+                        <a href="{% url 'login' %}"><i class="far fa-heart" style="color: red;"></i></a>
+                    {% endif %}
+                    <div class="like-count" data-id="{{ post.id }}" style="display: inline;">{{ post.like_count }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-edit_container_id="{{ post.id }}" style="display: none;">
+            <div>
+                <textarea autofocus id="text_{{ post.id }}" required="required" maxlength="{{ post_max_length }}">{{ post.message }}</textarea>
+            </div>
+            <div>
+                <button data-cancelid="{{ post.id }}" id="cancel-button_{{ post.id }}" type="button" class="btn btn-primary cancel-button">Cancel</button>
+                <button data-saveid="{{ post.id }}" id="save-button_{{ post.id }}" type="button" class="btn btn-primary save-button">Save</button> 
+                <div class="col" id="post-chars-remaining-message_{{ post.id }}" style="padding-left: 352px; display: inline; text-align: right;">
+                    <b>{{ post_max_length }}</b> characters remaining
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="pagination justify-content-center" style="margin-top: 20px;">
+        <span class="step-links justify-content-center">
+            <nav aria-label="post pagination">
+                <ul class="pagination justify-content-center">
+                    {% if posts.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">previous</a></li>
+                    {% endif %}
+
+                    {% if posts.has_previous or posts.has_next %}
+                        {% for page in num_page_range %}
+                            {% if forloop.counter|slugify == current_page|slugify %}
+                                <li class="page-item active"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}
+                                    <span class="sr-only">(current)</span>
+                                </a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if posts.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">last</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </span>
+    </div>
+    {% else %}
+    <div class="container border border-secondary rounded-sm post-container">
+        <div class="row post-row">
+            {% if "following" in request.path %}
+                <p>You are not following any users with posts. Click <a href="{% url 'index' %}">here</a>
+                to see all posts, then click a username to follow a user</p>
+            {% else %}
+                {% if user.username == request.user.username %}
+                    You have no posts
+                {% else %}
+                    This user has no posts
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock body %}

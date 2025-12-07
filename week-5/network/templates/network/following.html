@@ -1,0 +1,16 @@
+{% extends "network/posts_layout.html" %}
+{% load static %}
+
+{% block details %}
+
+    <h2 class="title">Following</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/like.js' %}"></script>
+{% endblock %}
